@@ -11,7 +11,7 @@ namespace BotUploader
     {
         static void Main(string[] args)
         {
-            var botClient = new TelegramBotClient(" "); //your http api
+            var botClient = new TelegramBotClient("5692361312:AAGYtAL3MYyvlGAjjyWthpNiocAfW2KHrCw"); //your http api
             botClient.StartReceiving(Update, Error);
             Console.ReadLine();
         }
@@ -30,7 +30,8 @@ namespace BotUploader
                 var fileInfo = await client.GetFileAsync(fileId);
                 var filePath = fileInfo.FilePath;
 
-                string destinationFilePath = $@"D:\TelegramCloud\{savingName.Replace(":", "-")}.jpg"; //you need to create a folder, where ur photos will collect
+                string destinationFilePath = $@"D:\TelegramCloud\{savingName.Replace(":", "-").Replace(".", "_") 
+                    + message.Document.FileName.Substring(message.Document.FileName.IndexOf('.'))}"; //you need to create a folder, where ur photos will collect
                 try
                 {
                     await using FileStream fileStream = System.IO.File.OpenWrite(destinationFilePath);

@@ -11,7 +11,7 @@ namespace BotUploader
     {
         static void Main(string[] args)
         {
-            var botClient = new TelegramBotClient("5692361312:AAGYtAL3MYyvlGAjjyWthpNiocAfW2KHrCw"); //your http api
+            var botClient = new TelegramBotClient("YYYYYYYYYYY:XXXXXXXXXXXXXXXXXXXXXXXXXX"); //your http api
             botClient.StartReceiving(Update, Error);
             Console.ReadLine();
         }
